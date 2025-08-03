@@ -1,0 +1,9 @@
+<p>list-pets works!</p>
+
+<h1>List of Pets</h1>
+<!-- new way of doing for loops in angular and using interpolation to display data , also called two way binding -->
+<!-- expression tells Angular how to uniquely identify each item in a loop. This helps Angular optimize DOM updates when the list changes — like when items are added, removed, or reordered.-->
+@for (pet of pets; track pet.id) {
+<div>({{pet.id}} ({{pet.name}})</div>
+}
+
