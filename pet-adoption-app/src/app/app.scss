@@ -1,0 +1,22 @@
+
+//To assign variables in SCSS:
+$box-primary-color:#3f51b5;
+$text-primary-color: white;
+$font-stack: 'Open Sans', sans-serif;
+
+h1{
+  color: $text-primary-color;
+  font-family: $font-stack;
+}
+
+
+//Nesting in SCSS:
+.blue-block{
+  background-color: $box-primary-color;
+  padding: 10px;
+  h2 {
+    font-size: 20p;
+    font-family: $font-stack;
+    color: $text-primary-color;
+  }
+}
