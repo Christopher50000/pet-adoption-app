@@ -16,10 +16,11 @@ export const appConfig: ApplicationConfig = {
       HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
         apiBase: 'api', // this names the base URL for the in-memory database and since we return the pets array from the in-memory database, we can use the api/pets endpoint
         dataEncapsulation: false,
-        delay: 500,
+        delay: 5000,
         passThruUnknownUrl: true
       })
-    )
+    ),
+
   ]
 };
 
