@@ -10,7 +10,7 @@ export class PetService {
   constructor(private http: HttpClient) {}
 
   getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>('api/pets');
+    return this.http.get<Pet[]>('api/pets');//this is the url that the http client will use to get the data using the in memory db
   }
 
 }

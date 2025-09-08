@@ -9,15 +9,16 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(
       HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
         apiBase: 'api', // this names the base URL for the in-memory database and since we return the pets array from the in-memory database, we can use the api/pets endpoint
-        dataEncapsulation: false,
-        delay: 5000,
-        passThruUnknownUrl: true
+        dataEncapsulation: false, // this disables data encapsulation, which means that the in-memory web api will return the pets array as is
+        delay: 5000, // this simulates a delay in the response
+        passThruUnknownUrl: true // this allows the in-memory web api to pass through unknown URLs
       })
     ),
 

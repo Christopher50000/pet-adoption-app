@@ -1,13 +1,27 @@
 <h1>List of Pets</h1>
+
 @if (loading) {
   <app-spinner></app-spinner>
 }
-@else {
-  @for (pet of pets; track pet.id) {
-    <div>({{ pet.id }} ({{ pet.name }})</div>
+@else{
+  <input type="text" [formControl]="validSearch" placeholder="Search pets..." (input)="onSearch()">
+  @if (this.validSearch.status=="VALID") {
 
+
+    @if (filteredPets.length==0) {
+      <p class="error">No pets found</p>
+    }
+    @else {
+      @for (pet of filteredPets ; track pet.id ) { <!-- track pet.id helps angular identify unique items in the list -->
+        <div>({{ pet.id }} ({{ pet.name }})</div>
+      }
+    }
   }
+  @else {
+    <p class="error" >Please enter a valid search term </p>
+    }
 }
+
 <!-- new way of doing for loops in angular and using interpolation to display data , also called two way binding -->
 <!-- expression tells Angular how to uniquely identify each item in a loop. This helps Angular optimize DOM updates when the list changes — like when items are added, removed, or reordered.-->
 
