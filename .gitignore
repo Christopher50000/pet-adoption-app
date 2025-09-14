@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploads (optional, if you don't want uploaded images tracked)
+uploads/
+
+# Environment files
+.env
+
+# IDE files (optional)
+.vscode/
