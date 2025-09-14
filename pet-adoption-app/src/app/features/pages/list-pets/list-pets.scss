@@ -5,3 +5,10 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.pet-image{
+  width: 100px;
+  height: 100px;
+  object-fit: cover; //keeps the image in the box
+  border-radius: 50%; //rounds the image
+}

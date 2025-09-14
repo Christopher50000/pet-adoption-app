@@ -1,4 +1,6 @@
 This project is for helping me understand Angular. This is just a simple project and will incorporate bootstrap, form to add animals , and a form to adopt a pet (basically a crud app)
 
 
-For in memory, we needed to use npm install angular-in-memory-web-api --save : This package intercepts HTTP requests and redirects them to a local in-memory data store.
+For in memory, we needed to use npm install angular-in-memory-web-api --save : This package intercepts HTTP requests and redirects them to a local in-memory data store. Part of Phase 1
+
+Phase 2 : Using Node Backend to allow for delay and to simulate a real backend. We needed to use npm install express --save and npm install cors --save

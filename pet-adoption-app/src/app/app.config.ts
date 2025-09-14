@@ -1,8 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { InMemoryDataService } from './shared/InMemoryDbService/in-memory-data.service';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { importProvidersFrom } from '@angular/core';
 import { routes } from './app.routes';
 
@@ -12,16 +10,7 @@ export const appConfig: ApplicationConfig = {
 
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()),
-    importProvidersFrom(
-      HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-        apiBase: 'api', // this names the base URL for the in-memory database and since we return the pets array from the in-memory database, we can use the api/pets endpoint
-        dataEncapsulation: false, // this disables data encapsulation, which means that the in-memory web api will return the pets array as is
-        delay: 5000, // this simulates a delay in the response
-        passThruUnknownUrl: true // this allows the in-memory web api to pass through unknown URLs
-      })
-    ),
-
+    provideHttpClient(withInterceptorsFromDi())
   ]
 };
 

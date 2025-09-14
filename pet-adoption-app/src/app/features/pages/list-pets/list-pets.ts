@@ -3,13 +3,14 @@ import { Pet } from '../../models/pet.model';
 import { PetService } from '../../services/pet-service';
 import { Spinner } from '../../../shared/loading/spinner/spinner';
 import { FormControl, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common'; //importing the optimized image directive to improve performance
 import { PetFilter } from './petFilter';
 
 
 
 @Component({
   selector: 'app-list-pets',
-  imports: [Spinner, FormsModule, ReactiveFormsModule],
+  imports: [Spinner, FormsModule, ReactiveFormsModule, NgOptimizedImage],
   templateUrl: './list-pets.html',
   styleUrl: './list-pets.scss'
 })
@@ -31,6 +32,7 @@ export class ListPets implements OnInit {
       this.pets = pets;
       this.filteredPets=[...pets];
       this.loading = false;
+      console.log(this.pets);
     });
 
   }

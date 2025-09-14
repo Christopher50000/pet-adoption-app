@@ -13,7 +13,13 @@
     }
     @else {
       @for (pet of filteredPets ; track pet.id ) { <!-- track pet.id helps angular identify unique items in the list -->
-        <div>({{ pet.id }} ({{ pet.name }})</div>
+        <div>ID: {{ pet.id }} </div>
+        <div>Name:{{ pet.name }}</div>
+        @if (!pet.image){
+            <p>No image available</p>
+        } @else {
+          <img [ngSrc]="pet.image" [alt]="'Image of ' + pet.name" width="150" height="150" class="pet-image" priority> <!--//priority is used to load images in the background -->
+        }
       }
     }
   }

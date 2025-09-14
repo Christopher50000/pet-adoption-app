@@ -1,1 +1,10 @@
 <p>add-pet works!</p>
+<form [formGroup]="petForm" (ngSubmit)="addPet()">
+  <input type="text" formControlName="name" placeholder="Enter pet name">
+  <br>
+  <br>
+  <input type="file" accept=".jpg ,.jpeg ,.png" placeholder="Upload pet image" (change)="onFileSelected($event)">
+  <br>
+  <br>
+  <button type="submit">Add Pet</button>
+</form>
