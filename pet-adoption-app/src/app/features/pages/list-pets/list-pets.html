@@ -15,6 +15,9 @@
       @for (pet of filteredPets ; track pet.id ) { <!-- track pet.id helps angular identify unique items in the list -->
         <div>ID: {{ pet.id }} </div>
         <div>Name:{{ pet.name }}</div>
+        <div>Age:{{ pet.yearsOfAge }}</div>
+        <div>Months:{{ pet.monthsOfAge }}</div>
+        <div>Description:{{ pet.description }}</div>
         @if (!pet.image){
             <p>No image available</p>
         } @else {

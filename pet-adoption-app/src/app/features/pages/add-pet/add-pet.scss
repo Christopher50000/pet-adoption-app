@@ -1,0 +1,120 @@
+.page-wrapper {
+  min-height: 100vh;                 // full height of the viewport
+  background-color: #0d3b66;         // dark blue outside form
+  display: flex;                      // center the form
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;                      // optional spacing around form
+}
+.pet-form {
+  max-width: 500px;
+  margin: 3rem auto; // a bit more spacing from top
+  padding: 2rem;
+  background-color: #e6f7ff; // slightly darker than body
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  color: #3399ff;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '🐾';
+    font-size: 150px;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  p, .pet-age {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #3399ff;
+  }
+
+  label {
+    margin-bottom: 0.3rem;
+    color: #3399ff;
+    &::before {
+      content: '🐾 ';
+      font-size: 16px;
+    }
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  textarea {
+    margin-top: 0.5rem;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid #66ccff;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #f0fbff;
+
+    &:focus {
+      border-color: #3399ff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(51, 153, 255, 0.5);
+    }
+  }
+
+  .pet-age {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    .age-input {
+      width: 80px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #66ccff;
+      background-color: #f0fbff;
+
+      &:focus {
+        border-color: #3399ff;
+        box-shadow: 0 0 5px rgba(51, 153, 255, 0.5);
+        outline: none;
+      }
+    }
+  }
+
+  .pet-description {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #66ccff;
+    background-color: #f0fbff;
+  }
+
+  button {
+    padding: 12px 25px;
+    background-color: #66ccff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+
+    &:hover:not(:disabled) {
+      background-color: #3399ff;
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      background-color: #a3d9ff;
+      cursor: not-allowed;
+    }
+  }
+}
+
+

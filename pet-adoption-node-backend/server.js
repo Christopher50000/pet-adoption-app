@@ -26,9 +26,9 @@ const upload = multer({ storage: storage }); //create multer instance
 
 // Temporary in-memory pet storage
 let pets = [
-    { id: 1, name: 'Bandit',image:null },
-    { id: 2, name: 'Thomas',image:null },
-    { id: 3, name: 'Pumpkin',image:null }
+    { id: 1, name: 'Bandit',image:null,monthsOfAge:2,yearsOfAge:2,description:'This is a description of Bandit' },
+    { id: 2, name: 'Thomas',image:null,monthsOfAge:3,yearsOfAge:3.5,description: 'This is a description of Thomas' },
+    { id: 3, name: 'Pumpkin',image:null,monthsOfAge:1,yearsOfAge:1,description: 'This is a description of Pumpkin' }
 ];
 
 // GET all pets
@@ -59,7 +59,11 @@ app.post('/api/pets', upload.single('image'), (req, res) => {
         {
             id:newId,
             name:newPetData.name,
+            monthsOfAge:newPetData.monthsOfAge,
+            yearsOfAge:newPetData.yearsOfAge,
+            description:newPetData.description,
             image:imagePath
+
         };
 
 

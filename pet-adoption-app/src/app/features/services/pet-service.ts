@@ -20,5 +20,10 @@ export class PetService {
     console.log("Submitting Form: ")
     return this.http.post<Pet>(this.petsUrl, formData);
   }
+  //Observable is a stream of data that can be subscribed a
+  //Delete a pet by id
+  deletePet(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.petsUrl}/${id}`);
+  }
 
 }

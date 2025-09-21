@@ -1,10 +1,22 @@
-<p>add-pet works!</p>
-<form [formGroup]="petForm" (ngSubmit)="addPet()">
-  <input type="text" formControlName="name" placeholder="Enter pet name">
+<div class="page-wrapper">
+<form [formGroup]="petForm" class="pet-form" (ngSubmit)="addPet()">
+
+  <p>Pet Name: <input type="text" formControlName="name" placeholder="Enter pet name"> </p>
+  <br>
+  <p>Pet Image: <input type="file" accept=".jpg ,.jpeg ,.png" placeholder="Upload pet image" (change)="onFileSelected($event)"> </p>
+  <br>
+
+  <div class="pet-age">
+    <label>Pet Age:</label>
+    <input type="number" formControlName="years" placeholder="years" min="0" max="30"  class="age-input"> Year(s)
+    <input type="number" formControlName="months" placeholder="months" min="0" max="11"  class="age-input"> Month(s)
+  </div>
+  <br>
+  <p>Give a pet description of 500 characters (Current {{petForm.value.description.length}}):  </p>
+  <textarea formControlName="description" placeholder="Enter pet description ..." maxlength="500" class="pet-description"> </textarea>
+
   <br>
   <br>
-  <input type="file" accept=".jpg ,.jpeg ,.png" placeholder="Upload pet image" (change)="onFileSelected($event)">
-  <br>
-  <br>
-  <button type="submit">Add Pet</button>
+  <button type="submit" [disabled]="petForm.invalid">Add Pet</button>
 </form>
+</div>

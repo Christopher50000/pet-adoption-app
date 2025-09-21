@@ -60,6 +60,10 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json",
+            "buildTarget": "pet-adoption-app:build:development"
+          },
           "configurations": {
             "production": {
               "buildTarget": "pet-adoption-app:build:production"
