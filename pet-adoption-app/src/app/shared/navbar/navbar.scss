@@ -1,0 +1,106 @@
+/* ===============================
+   Pet App Navbar - Animated Gradient Title with Paws
+   =============================== */
+.navbar {
+  display: flex;
+  flex-direction: column;           // stack logo and links vertically
+  align-items: center;              // center everything horizontally
+  background-color: #f0fbff;        // light page background
+  color: #0d3b66;
+  padding: 2rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* ===============================
+     Logo / Title
+     =============================== */
+  .nav-logo {
+    font-size: 2.4rem;              // large text size for logo
+    font-weight: 900;               // bold logo
+    margin-bottom: 1.5rem;          // space between logo and nav links
+    display: flex;
+    align-items: center;            // vertically align paw + text
+    justify-content: center;        // center horizontally
+    position: relative;
+
+    /* Paw before the text */
+    &::before {
+      content: '🐾';
+      margin-right: 0.5rem;         // spacing between paw and text
+      font-size: 2.5rem;
+    }
+
+    /* Paw after the text */
+    &::after {
+      content: '🐾';
+      margin-left: 0.5rem;          // spacing between text and paw
+      font-size: 2.5rem;
+    }
+
+    /* Animated gradient text for the logo */
+    background: linear-gradient(270deg, #0d3b66, #3399ff, #66ccff, #3399ff, #0d3b66);
+    background-size: 1000% 100%;    // allows gradient animation
+    -webkit-background-clip: text;  // clip gradient to text
+    -webkit-text-fill-color: transparent; // make text color transparent
+    animation: gradientAnimation 8s ease infinite; // animate gradient
+  }
+
+  /* Keyframes for gradient animation */
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ===============================
+     Navigation Links
+     =============================== */
+  .nav-links {
+    list-style: none;               // remove bullets
+    display: flex;                  // horizontal layout
+    justify-content: center;        // center the links
+    gap: 1rem;                      // spacing between links
+    width: 100%;                     // allow proper centering
+
+    li {
+      a {
+        text-decoration: none;      // remove underline
+        color: #0d3b66;             // dark blue text
+        font-weight: 600;           // semi-bold
+        padding: 0.5rem 1rem;       // spacing around links
+        border: 2px solid #0d3b66;  // border around link
+        border-radius: 8px;         // rounded corners
+        background-color: #ffffff;  // white background
+        transition: all 0.3s;       // smooth hover transitions
+
+        /* Hover effect for links */
+        &:hover {
+          background-color: #3399ff;
+          color: white;
+          border-color: #3399ff;
+        }
+
+        /* Active link style */
+        &.active {
+          background-color: #0d3b66;
+          color: white;
+          border-color: #0d3b66;
+        }
+      }
+    }
+  }
+
+  /* ===============================
+     Responsive Design
+     =============================== */
+  @media (max-width: 500px) {
+    .nav-links {
+      flex-direction: column;       // stack links vertically
+      gap: 0.5rem;
+
+      li a {
+        width: 100%;                 // take full width
+        text-align: center;          // center text
+      }
+    }
+  }
+}

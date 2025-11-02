@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 import {PetService} from '../../services/pet-service';
 import { Pet } from '../../models/pet.model';
 import { OnInit } from '@angular/core';
-import {NgModel} from '@angular/forms';
+import { ageNotZeroValidator } from '../../CustomValidators/ageNotZeroValidator';
 
 @Component({
   selector: 'app-add-pet',
@@ -22,13 +22,13 @@ export class AddPet implements OnInit  {
       name: new FormControl('', Validators.pattern('^[a-zA-Z]*$')),
       image: new FormControl<File | null>(null, Validators.required), //image can be File or null.
       description: new FormControl('', Validators.required),
-      years: new FormControl<number | null>(null, [Validators.required, Validators.min(0), Validators.max(30)]),
+      years: new FormControl<number | null>(null, [Validators.min(0), Validators.max(30)]),
       months: new FormControl<number | null>(null, [Validators.min(0), Validators.max(11)])
-  });
+  },{validators: [ageNotZeroValidator]});
   }
 
   //The <input type="file"> element does not store the file in the form value automatically in a way you can send.Need to capture the File object:
-  //Browsers won’t automatically expose file contents due to secruity reasons  to JavaScript just because you have a form control.
+  //Browsers won’t automatically expose file contents due to security reasons  to JavaScript just because you have a form control.
   //
   // You have to explicitly grab the file from event.target.files when the user selects it.
   onFileSelected(event: any) {

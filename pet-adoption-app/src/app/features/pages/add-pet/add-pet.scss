@@ -1,18 +1,74 @@
+/* ===============================
+   Page Wrapper
+   =============================== */
 .page-wrapper {
-  min-height: 100vh;                 // full height of the viewport
-  background-color: #0d3b66;         // dark blue outside form
-  display: flex;                      // center the form
-  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a0d8f1, #ffffff); // soft blue-white gradient
+  display: flex;
+  flex-direction: column;           // stack heading above form
+  justify-content: flex-start;      // start from top
   align-items: center;
-  padding: 2rem;                      // optional spacing around form
+  padding: 3rem 2rem;
 }
+
+/* ===============================
+   Form Heading
+   =============================== */
+.form-heading {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h2 {
+    font-size: 34px;
+    font-weight: 900;
+    color: #0d3b66;
+    background: linear-gradient(90deg, #3399ff, #66ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 5px;
+
+    &::after {
+      content: '🐾';
+      position: absolute;
+      right: -45px;
+      top: -5px;
+      font-size: 38px;
+      opacity: 0.5;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 120%;
+      height: 10px;
+      background-color: rgba(51, 153, 255, 0.2);
+      bottom: -5px;
+      left: -10%;
+      border-radius: 5px;
+      z-index: -1;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: #3399ff;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+}
+
+/* ===============================
+   Main Pet Form
+   =============================== */
 .pet-form {
-  max-width: 500px;
-  margin: 3rem auto; // a bit more spacing from top
-  padding: 2rem;
-  background-color: #e6f7ff; // slightly darker than body
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem;
+  background-color: #e6f7ff;           // subtle light blue
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   color: #3399ff;
   position: relative;
   overflow: hidden;
@@ -23,33 +79,32 @@
     position: absolute;
     top: -40px;
     right: -40px;
-    opacity: 0.1;
+    opacity: 0.05;
     pointer-events: none;
   }
 
-  p, .pet-age {
+  p {
     margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
     font-weight: bold;
     color: #3399ff;
   }
 
-  label {
-    margin-bottom: 0.3rem;
+  label, h4 {
     color: #3399ff;
-    &::before {
-      content: '🐾 ';
-      font-size: 16px;
-    }
+  }
+
+  h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
   }
 
   input[type="text"],
   input[type="number"],
   input[type="file"],
   textarea {
-    margin-top: 0.5rem;
-    padding: 8px 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 10px 12px;
     border-radius: 10px;
     border: 1px solid #66ccff;
     font-size: 14px;
@@ -59,30 +114,50 @@
     &:focus {
       border-color: #3399ff;
       outline: none;
-      box-shadow: 0 0 5px rgba(51, 153, 255, 0.5);
+      box-shadow: 0 0 5px rgba(51, 153, 255, 0.3);
     }
   }
 
-  .pet-age {
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+  /* ===============================
+     Pet Age Section
+     =============================== */
+  .pet-age-section {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    text-align: center;
 
-    .age-input {
-      width: 80px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid #66ccff;
-      background-color: #f0fbff;
+    h4 {
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: #3399ff;
+    }
 
-      &:focus {
-        border-color: #3399ff;
-        box-shadow: 0 0 5px rgba(51, 153, 255, 0.5);
-        outline: none;
+    .pet-age {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .age-field {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 20px;
+      input {
+        width: 100px;
+        margin-top: 20px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid #66ccff;
+        background-color: #f0fbff;
       }
     }
   }
 
+  /* ===============================
+     Pet Description Textarea
+     =============================== */
   .pet-description {
     width: 100%;
     min-height: 100px;
@@ -93,6 +168,9 @@
     background-color: #f0fbff;
   }
 
+  /* ===============================
+     Submit Button
+     =============================== */
   button {
     padding: 12px 25px;
     background-color: #66ccff;
@@ -115,6 +193,21 @@
       cursor: not-allowed;
     }
   }
+
+  /* ===============================
+     Error Messages
+     =============================== */
+  .error {
+    color: red;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background-color: #66ccff;   // light blue line
+    margin: 1.5rem 0;            // spacing above and below
+    opacity: 0.5;                // subtle look
+  }
+
 }
-
-

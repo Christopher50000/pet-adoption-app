@@ -1,22 +1,56 @@
+
 <div class="page-wrapper">
+  <div class="form-heading">
+    <h2>Add a Pet</h2>
+    <p class="form-subtitle">Share your furry friend with the world!</p>
+  </div>
 <form [formGroup]="petForm" class="pet-form" (ngSubmit)="addPet()">
 
-  <p>Pet Name: <input type="text" formControlName="name" placeholder="Enter pet name"> </p>
+  <h4>Pet Name: <input type="text" formControlName="name" placeholder="Enter pet name"> </h4>
   <br>
-  <p>Pet Image: <input type="file" accept=".jpg ,.jpeg ,.png" placeholder="Upload pet image" (change)="onFileSelected($event)"> </p>
+  <hr>
+  <h4>Pet Image: <input type="file" accept=".jpg ,.jpeg ,.png" placeholder="Upload pet image" (change)="onFileSelected($event)"> </h4>
   <br>
+  <hr>
+  <div class="pet-age-section">
+    <h4>Pet Age</h4>
 
-  <div class="pet-age">
-    <label>Pet Age:</label>
-    <input type="number" formControlName="years" placeholder="years" min="0" max="30"  class="age-input"> Year(s)
-    <input type="number" formControlName="months" placeholder="months" min="0" max="11"  class="age-input"> Month(s)
+    <div class="pet-age">
+      <div class="age-field">
+        <label for="years">Years:</label>
+        <input type="number" formControlName="years" id="years" placeholder="Years" min="0" max="30">
+      </div>
+
+      <div class="age-field">
+        <label for="months">Months:</label>
+        <input type="number" formControlName="months" id="months" placeholder="Months" min="0" max="11">
+      </div>
+    </div>
   </div>
   <br>
+  <hr>
   <p>Give a pet description of 500 characters (Current {{petForm.value.description.length}}):  </p>
   <textarea formControlName="description" placeholder="Enter pet description ..." maxlength="500" class="pet-description"> </textarea>
 
   <br>
   <br>
+  @if (petForm.invalid)
+  {
+    @if (petForm.get('years')?.invalid && petForm.touched) {
+      <p class="error">Invalid years Of Age, years need to be greater than 0 and less than 30</p>
+    }
+    @if (petForm.touched && petForm.get('months')?.invalid) {
+      <p class="error">Invalid months Of Age, months need to be greater than 0 and less than 12</p>
+    }
+    @if (petForm.get('file')?.invalid) {
+    <p class="error">Please upload a jpg,jpeg or png image</p>
+    }
+    @if (petForm.errors?.['ageNotZero'] && petForm.touched)
+    {
+      <p class="error">Age cannot be zero</p>
+    }
+  }
+
   <button type="submit" [disabled]="petForm.invalid">Add Pet</button>
 </form>
 </div>
