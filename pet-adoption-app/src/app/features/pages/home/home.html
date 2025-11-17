@@ -1,1 +1,12 @@
-<p>home works!</p>
+
+<div class="enter-animation">
+  <p>The box is entering.</p>
+  <p>home works!</p>
+</div>
+
+<!-- Auto-scrolling Carousel -->
+<div #carousel class="carousel">
+  @for ( image of images ; track image) {
+    <img src="{{image}}" alt="Pet Image">
+  }
+</div>

@@ -1,0 +1,43 @@
+/* This class applies the animation to any element that wants to "enter" */
+.enter-animation {
+  /* shorthand property for applying an animation */
+  /* slide-fade      -> the name of the animation (matches @keyframes name) */
+  /* 1s              -> duration of the animation (1 second) */
+  /* ease-out        -> timing function (starts fast, slows down at the end) */
+  /* forwards        -> keeps the element in its final state after animation ends */
+  animation: slide-fade 1s ease-out forwards;
+}
+
+/* Define the keyframes for the 'slide-fade' animation */
+@keyframes slide-fade {
+  /* starting state of the animation */
+  from {
+    opacity: 0;              /* element is completely invisible */
+    transform: translateY(20px); /* element starts 20px lower than final position */
+  }
+
+  /* ending state of the animation */
+  to {
+    opacity: 1;              /* element becomes fully visible */
+    transform: translateY(0); /* element moves to its final position */
+  }
+}
+
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;            // space between images
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  width: 100%;
+  white-space: nowrap;       // prevent flex items from wrapping
+}
+
+.carousel img {
+  width: 200px;          // smaller width
+  height: 150px;         // smaller height
+  object-fit: cover;     // keeps aspect ratio, crops if needed
+  border-radius: 8px;    // optional, rounded corners
+  scroll-snap-align: center;
+}
