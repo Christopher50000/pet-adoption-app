@@ -1,12 +1,21 @@
+<section class="hero">
+  <p class="quote">"Saving one pet won't change the world… but for that one pet, the world will change forever."</p>
+</section>
 
-<div class="enter-animation">
-  <p>The box is entering.</p>
-  <p>home works!</p>
-</div>
 
-<!-- Auto-scrolling Carousel -->
-<div #carousel class="carousel">
-  @for ( image of images ; track image) {
-    <img src="{{image}}" alt="Pet Image">
+<section class="pets-sample-section">
+  @for (pet of pets; track pet.name) {
+    <div class="pet-sample-card enter-animation">
+      <img [src]="pet.image" [alt]="pet.name" />
+      <h3>{{ pet.name }}</h3>
+      <p>{{ pet.description }}</p>
+    </div>
+  } @empty {
+    <p>No pets available at the moment.</p>
   }
-</div>
+</section>
+
+
+<footer>
+  <p>&copy; Pet Adoption Agency</p>
+</footer>

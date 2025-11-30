@@ -3,12 +3,13 @@
    =============================== */
 .page-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #a0d8f1, #ffffff); // soft blue-white gradient
+  background: linear-gradient(135deg, #cfe9ff  , #ffffff); // soft blue-white gradient
   display: flex;
   flex-direction: column;           // stack heading above form
   justify-content: flex-start;      // start from top
   align-items: center;
   padding: 3rem 2rem;
+
 }
 
 /* ===============================

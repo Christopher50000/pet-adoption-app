@@ -24,20 +24,115 @@
 }
 
 
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;            // space between images
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
-  width: 100%;
-  white-space: nowrap;       // prevent flex items from wrapping
+/* home.component.scss */
+
+
+body, .app-home {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(270deg, #0d3b66, #3399ff, #66ccff, #3399ff, #0d3b66);
+  background-size: 1000% 100%;
+  animation: gradientAnimation 8s ease infinite;
+  color: #333;
 }
 
-.carousel img {
-  width: 200px;          // smaller width
-  height: 150px;         // smaller height
-  object-fit: cover;     // keeps aspect ratio, crops if needed
-  border-radius: 8px;    // optional, rounded corners
-  scroll-snap-align: center;
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: white;
+
+
+  h2 {
+    font-size: 2rem;
+    color: #007acc;
+    margin-bottom: 50px;
+  }
+
+
+  .quote {
+    font-style: italic;
+    font-size: 5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #3399ff, #66ccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-shadow: #55a4ea 10px 10px 10px 10px;
+
+    display: inline-block;
+    position: relative;
+    &::after {
+      position: absolute;
+      right: -45px;
+      top: -5px;
+      font-size: 38px;
+      opacity: 0.5;
+    }
+
+    &::before {
+      position: absolute;
+      width: 120%;
+      height: 10px;
+      background-color: rgba(51, 153, 255, 0.2);
+      bottom: -5px;
+      left: -10%;
+      border-radius: 5px;
+      z-index: -1;
+    }
+  }
+
+
+  .description {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    background-color: #cfe9ff; /* Light blue background for description */
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+
+.pets-sample-section {
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+
+
+  .pet-sample-card {
+    background-color: #e6f3ff;  // Light blue background
+    border: 2px solid #cfe9ff;  // Very light blue border
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    color: #007acc;  // Slightly darker blue text
+
+
+    img {
+      width: 100%;
+      height: 450px; /* fixed height */
+      object-fit: cover; /* ensures images fill the space without stretching */
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+footer {
+  background-color: #cfe9ff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
 }
